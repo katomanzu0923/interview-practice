@@ -8,7 +8,9 @@
     <transition name="fade">
 			<router-view class="component"></router-view>
 		</transition>
-    <img src="@/assets/interviewback.png">
+    <img src="@/assets/interviewback.png" v-if="changeDefault">
+    <img src="@/assets/sales.png" v-if="salesChange">
+    <img src="@/assets/techlast.png" v-if="techChange">
   </div>
 </template>
 
@@ -17,7 +19,7 @@
 export default {
   data() {
     return {
-
+      newback:false
     }
   },
   computed: {
@@ -26,7 +28,22 @@ export default {
     },
     displayName() {
       return this.$store.state.displayName
-    }
+    },
+    photoURL() {
+      return this.$store.state.photoURL
+    },
+    changeDefault() {
+      return this.$store.state.changeDefault
+    },
+    changeNew() {
+      return this.$store.state.changeNew
+    },
+    salesChange() {
+      return this.$store.state.salesChange
+    },
+    techChange() {
+      return this.$store.state.techChange
+    },
 	},
 
 }
@@ -74,6 +91,7 @@ img {
   width: 100%;
   height: 100%;
   z-index:  -5;
+  filter: opacity(90%);
 }
 .fade-enter-active {
   transition: all 2s ease;

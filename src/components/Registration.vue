@@ -1,6 +1,5 @@
 <template>
 <div>
-	<Old v-if="Up"></Old>
 		<div class="registration-content" v-if="RegistrationUp">
 			<input type="text" v-model="name" placeholder="name">
 			<input type="email" v-model="email" placeholder="email">
@@ -14,25 +13,33 @@
 </template>
 
 <script>
-import Old from "@/components/Old.vue"; 
+
 
 export default {
 	components: {
-		Old
 	},
 	data(){
 		return {
 			Up:false,
 			RegistrationUp:true,
 			name:'',
+			part:'',
 			email:'',
 			password:'',
+			kari:'',
+			selected: 0,
+			options: [
+      { text: '新卒', value: 1 },
+      { text: '中途(営業)', value: 2},
+      { text: '中途(エンジニア)', value: 3}
+    ]
 		};
 	},
 	methods: {
 		registration(){
 			this.$store.dispatch('register', {
 				displayName: this.name,
+				photoURL: this.kari,
 				email: this.email,
 				password: this.password,
 			});
@@ -61,6 +68,15 @@ h2 {
   text-stroke: 1px black;
 }
 input {
+	display: block;
+	color: rgb(0, 0, 0);
+  background:rgba(247, 205, 90, 0.548);
+  border:1px solid rgb(255, 0, 0);
+  border-radius: 20px;
+	margin: 0 5px;
+	outline: none;
+}
+select {
 	display: block;
 	color: rgb(0, 0, 0);
   background:rgba(247, 205, 90, 0.548);
@@ -106,7 +122,7 @@ button:active {
 	justify-content: center;
 }
 .registration-button {
-	color: rgb(0, 0, 0);
+	color: rgb(255, 0, 0);
   background:rgba(247, 205, 90, 0.548);
   border:1px solid rgb(255, 0, 0);
   border-radius: 20px;

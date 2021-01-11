@@ -18,9 +18,11 @@
 import Old from "@/components/Old.vue";
 
 
+
 export default {
 	components: {
-		Old
+		Old,
+
 	},
 	data(){
 		return {

@@ -5,10 +5,7 @@
 	</div>
 	<div class="PartButton">
       <div class="NewButton">
-        <button @click="PositionNew()">新卒として練習する</button>
-      </div>
-      <div class="OldButton">
-        <button @click="PositionOld()">中途として練習する</button>
+        <button @click="PositionNew()">面接練習する</button>
       </div>
       <div class="TechButton">
         <router-link to="/" tag="button" >戻る</router-link>

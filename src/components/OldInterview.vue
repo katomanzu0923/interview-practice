@@ -1,8 +1,30 @@
 <template>
 	<div>
 		<div class="contents" >
+			<div class="contents" v-if="part=== 0">
 				<div class="NewTitle">
-					<p v-if="number=== 0">あなたの自己紹介をしてください</p>
+					<p v-if="number=== 0">あなたの自己紹介を教えてください</p>
+					<p v-else-if="number === 1">{{displayName}}{{question01}}</p>
+					<p v-else-if="number === 2">{{question02}}</p>
+					<p v-else-if="number === 3">{{question03}}</p>
+					<p v-else-if="number === 4">{{question04}}</p>
+					<p v-else-if="number === 5">ありがとうございました。それでは何か質問はありませんか？</p>
+				</div>
+				<div class="flex">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+				<img src="@/assets/face01.png" alt="" v-if="face===1"><img src="@/assets/face02.png" alt="" v-if="face===2"><img src="@/assets/face03.png" alt="" v-if="face===3"><img src="@/assets/face04.png" alt="" v-if="face===4">
+				</div>
+				<button @click="keep()" class="NewButton">保存</button>
+				<button v-if="number=== 0" @click="next(),newrandom01()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 1" @click="next(),newrandom02()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 2" @click="next(),newrandom03()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 3" @click="next(),newrandom04()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 4" @click="next()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 5" @click="next()"  class="NewButton">{{down}}</button>
+			</div>
+			<div class="contents" v-if="part=== 1">
+				<div class="NewTitle">
+					<p v-if="number=== 0">あなたの自己紹介を教えてください</p>
 					<p v-else-if="number === 1">{{question01}}</p>
 					<p v-else-if="number === 2">{{question02}}</p>
 					<p v-else-if="number === 3">{{question03}}</p>
@@ -11,8 +33,16 @@
 				</div>
 				<div class="flex">
 					<textarea name="" id="" cols="30" rows="10" v-model="memo" placeholder="気になったことをメモ" class="NewText">memo</textarea>
-				<img src="@/assets/face01.png" alt="" v-if="select===1"><img src="@/assets/face02.png" alt="" v-if="select===2"><img src="@/assets/face03.png" alt="" v-if="select===3"><img src="@/assets/face04.png" alt="" v-if="select===4">
+				<img src="@/assets/face01.png" alt="">
 				</div>
+				<button @click="keep()" class="NewButton">保存</button>
+				<button v-if="number=== 0" @click="next(),salerandom01()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 1" @click="next(),salerandom02()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 2" @click="next(),salerandom03()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 3" @click="next(),salerandom04()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 4" @click="next()"  class="NewButton">{{down}}</button>
+				<button v-else-if="number === 5" @click="next()"  class="NewButton">{{down}}</button>
+			</div>
 				<button @click="keep()" class="NewButton">保存</button>
 				<button v-if="number=== 0" @click="next(),random01()"  class="NewButton">{{down}}</button>
 				<button v-else-if="number === 1" @click="next(),random02()"  class="NewButton">{{down}}</button>
@@ -20,36 +50,120 @@
 				<button v-else-if="number === 3" @click="next(),random04()"  class="NewButton">{{down}}</button>
 				<button v-else-if="number === 4" @click="next()"  class="NewButton">{{down}}</button>
 				<button v-else-if="number === 5" @click="next()"  class="NewButton">{{down}}</button>
-		</div>
+			</div>
+			<div class="contents" v-if="part=== 2">
+				<transition name="fade">
+					<Popup :popmemo00="popmemo00" :poppart="poppart" v-on:downpop="changepop" v-if="uppop"></Popup>
+				</transition>
+				<div class="NewTitle">
+					<p v-if="number=== 0">{{displayName}}様の自己紹介をしてください</p>
+					<p v-else-if="number === 1">{{displayName}}{{question01}}</p>
+					<p v-else-if="number === 2">{{question02}}</p>
+					<p v-else-if="number === 3">{{question03}}</p>
+					<p v-else-if="number === 4">{{question04}}</p>
+					<p v-else-if="number === 5">ありがとうございました。それでは何か質問はありませんか？</p>
+				</div>
+				<div class="flex">
+				<img src="@/assets/face01.png" alt="">
+				</div>
+				<div class="button-area" v-if="number=== 0">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save00()" class="NewButton">保存</button>
+						<button @click="next(),techrandom01()"  class="NewButton">{{down}}</button>
+					</div>
+				</div>
+				<div class="button-area" v-if="number=== 1">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save01()" class="NewButton">保存</button>
+						<button @click="next(),techrandom02()"  class="NewButton">{{down}}</button>
+					</div>
+				</div>
+				<div class="button-area" v-if="number=== 2">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save02()" class="NewButton">保存</button>
+						<button @click="next(),techrandom03()"  class="NewButton">{{down}}</button>
+					</div>
+				</div>
+				<div class="button-area" v-if="number=== 3">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save03()" class="NewButton">保存</button>
+						<button @click="next(),techrandom04()"  class="NewButton">{{down}}</button>
+					</div>
+				</div>
+				<div class="button-area" v-if="number=== 4">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save04()" class="NewButton">保存</button>
+						<button @click="next()"  class="NewButton">{{down}}</button>
+					</div>
+				</div>
+				<div class="button-area" v-if="number=== 5">
+					<button  class="NewButton">保存</button>
+					<button @click="next()"  class="NewButton">{{down}}</button>
+				</div>
+			</div>
 	</div>
 </template>
 
 <script>
+import Popup from "@/components/Popup.vue";
 //import axios from "axios";
 export default {
+  components: {
+		Popup,
+	},
 	data() {
 		return {
 			down:'次へ',
-			memo:'',
+			memo00:'',
+			memo01:'',
+			memo02:'',
+			memo03:'',
+			memo04:'',
 			number:0,
+			question00:'',
 			question01:'',
 			question02:'',
 			question03:'',
 			question04:'',
 			math:'',
-			data1:['あなたの自己PRを教えてください','あなたの成功体験を教えてください','学生時代に力を入れてきたこと'],
-			data2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
-			data3:['なぜこの職種を希望されたのですか','今回のあなたの就活軸を教えてください','現在、プログラミング学習ではどのようなことを学習しているのですか'],
-			data4:['あなたの失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','プログラミングを学んでみた感想',],
-			randomnumber:''
+			newdata1:['あなたの自己PRを教えてください','あなたの成功体験を教えてください','学生時代に力を入れてきたこと'],
+			newdata2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
+			newdata3:['なぜこの業界を希望されたのですか','今回のあなたの就活軸を教えてください','大学では主にどんな事を学習しているのですか'],
+			newdata4:['あなたの失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','大学の授業を学んでみた感想',],
+			saledata1:['あなたの自己PRを教えてください','あなたの成功体験を教えてください','あなたが業務で成し遂げた事を教えてください'],
+			saledata2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
+			saledata3:['なぜこの職種を希望されたのですか','今回のあなたの就活軸を教えてください','課題が発生した時にどのようにして解決しましたか？'],
+			saledata4:['あなたの失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','その手法をどのように弊社で活かしていきたいと考えていますか',],
+			techdata1:['の自己PRを教えてください','の成功体験を教えてください','が業務で成し遂げた事を教えてください'],
+			techdata2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
+			techdata3:['なぜこの職種を希望されたのですか','今回のの就活軸を教えてください','エラーが発生した時にどのようにして解決しましたか？'],
+			techdata4:['業務での失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','あなたのお気に入りの言語に関して教えてください',],
+			randomnumber:'',
+			uppop:false,
+			popmemo00:'',
+			poppart:2
 		}
 	},
 	props: {
 		select: {
 			type: Number,
 			default: 1
-		}
 		},
+		part: {
+			type: Number,
+			default: 0
+		}
+	},
+	computed: {
+		displayName() {
+      return this.$store.state.displayName
+    },
+	},
 	methods: {
 		next() {
 			if (this.number >= 4) {
@@ -66,47 +180,132 @@ export default {
 				this.down = "次へ"
 			}
 		},
-		random01() {
-			this.randomnumber = Math.floor(Math.random() * 3);
-			this.question01 = this.data1[this.randomnumber]
-		},
-		random02() {
-			if (this.randomnumber === 0){
-				this.question02 = this.data2[0]
-			}else{
-				this.question02 = this.data2[1]
+		changememo() {
+			if(this.memo !== null) {
+				this.$emit('upmemo')
 			}
 		},
-		random03(){
+		newrandom01() {
 			this.randomnumber = Math.floor(Math.random() * 3);
-			this.question03 = this.data3[this.randomnumber]
+			this.question01 = this.newdata1[this.randomnumber]
 		},
-		random04(){
+		newrandom02() {
+			if (this.randomnumber === 0){
+				this.question02 = this.newdata2[0]
+			}else{
+				this.question02 = this.newdata2[1]
+			}
+		},
+		newrandom03(){
+			this.randomnumber = Math.floor(Math.random() * 3);
+			this.question03 = this.newdata3[this.randomnumber]
+		},
+		newrandom04(){
 			if (this.randomnumber === 1) {
-				this.question04 = this.data4[2]
+				this.question04 = this.newdata4[2]
 			}else if (this.randomnumber === 2){
-				this.question04 = this.data4[3]
+				this.question04 = this.newdata4[3]
 			}else{
 				this.randomnumber = 1 + Math.floor(Math.random() * 2);
-				this.question04 = this.data4[this.randomnumber]
+				this.question04 = this.newdata4[this.randomnumber]
 			}
 		},
-		keep() {
-			//axios.post(
-				//'https://firestore.googleapis.com/v1/projects/interview-practice-f4b1c/databases/(default)/documents/memo',
-			//	{
-			//		fields: {
-						//memo: {
-					//		stringValue:this.memo
-				//		}let data02 = Math.floor(Math.random() * this.data2.length);
-			//this.question03 = this.data2[data02]
-			//let data03 = Math.floor(Math.random() * this.data3.length);
-			//this.question04 = this.data3[data03]
-			//		}
-			//	}
-			//);
-			this.$emit("protect", this.memo)
-
+		salerandom01() {
+			this.randomnumber = Math.floor(Math.random() * 3);
+			this.question01 = this.saledata1[this.randomnumber]
+		},
+		salerandom02() {
+			if (this.randomnumber === 0){
+				this.question02 = this.saledata2[0]
+			}else{
+				this.question02 = this.saledata2[1]
+			}
+		},
+		salerandom03(){
+			this.randomnumber = Math.floor(Math.random() * 3);
+			this.question03 = this.saledata3[this.randomnumber]
+		},
+		salerandom04(){
+			if (this.randomnumber === 1) {
+				this.question04 = this.saledata4[2]
+			}else if (this.randomnumber === 2){
+				this.question04 = this.saledata4[3]
+			}else{
+				this.randomnumber = 1 + Math.floor(Math.random() * 2);
+				this.question04 = this.saledata4[this.randomnumber]
+			}
+		},
+			techrandom01() {
+			this.randomnumber = Math.floor(Math.random() * 3);
+			this.question01 = this.techdata1[this.randomnumber]
+		},
+		techrandom02() {
+			if (this.randomnumber === 0){
+				this.question02 = this.techdata2[0]
+			}else{
+				this.question02 = this.techdata2[1]
+			}
+		},
+		techrandom03(){
+			this.randomnumber = Math.floor(Math.random() * 3);
+			this.question03 = this.techdata3[this.randomnumber]
+		},
+		techrandom04(){
+			if (this.randomnumber === 1) {
+				this.question04 = this.techdata4[2]
+			}else if (this.randomnumber === 2){
+				this.question04 = this.techdata4[3]
+			}else{
+				this.randomnumber = 1 + Math.floor(Math.random() * 2);
+				this.question04 = this.techdata4[this.randomnumber]
+			}
+		},
+		save00() {
+			this.popmemo00 = this.memo00
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save00", this.memo00)
+			this.$emit("upsave")
+			this.$emit("uptext00")
+		},
+		save01() {
+			this.popmemo00 = this.memo01
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save1", this.memo01)
+			this.$emit("save01", this.question01)
+			this.$emit("upsave")
+			this.$emit("uptext01")
+		},
+		save02() {
+			this.popmemo00 = this.memo02
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save2", this.memo02)
+			this.$emit("save02", this.question02)
+			this.$emit("upsave")
+			this.$emit("uptext02")
+		},
+		save03() {
+			this.popmemo00 = this.memo03
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save3", this.memo03)
+			this.$emit("save03", this.question03)
+			this.$emit("upsave")
+			this.$emit("uptext03")
+		},
+		save04() {
+			this.popmemo00 = this.memo04
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save4", this.memo04)
+			this.$emit("save04", this.question04)
+			this.$emit("upsave")
+			this.$emit("uptext04")
+		},
+		changepop(){
+			this.uppop = false
 		}
 	}
 }
@@ -116,7 +315,7 @@ export default {
 img {
 	width: 60%;
 	left: 25%;
-	height: 600px;
+	height: 450px;
 }
 p {
 	font-size: 2rem;
@@ -126,16 +325,35 @@ p {
 	}
 button {
 	outline: none;
+	margin: 5px;
 }
 button:active {
-  /*ボタンを押したとき*/
+
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px);
+  border-bottom: none;
 }
 textarea {
 	outline: none;
 	color: black;
+}
+.fade-enter-active {
+  transition: all 0.75s ease;
+}
+.fade-enter{
+  opacity: 0;
+}
+.fade-enter-to {
+	opacity: 1;
+}
+.fade-leave-active {
+  transition: all 1s ease;
+}
+.fade-leave{
+  opacity: 1;
+}
+.fade-leave-to {
+	opacity: 0;
 }
 .NewTitle p{
   width: 100%;
@@ -170,7 +388,7 @@ textarea {
 	width: 10%;
 	font-size: 1.5rem;
 	padding: 5px;
-	margin: 10px auto;
+	margin: 10px;
 }
 .OldButton {
   color: blue;
