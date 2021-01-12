@@ -24,7 +24,7 @@
 [![Image from Gyazo](https://i.gyazo.com/4f2f052de14aba2343eb7ebf5ec9d0b6.gif)](https://gyazo.com/4f2f052de14aba2343eb7ebf5ec9d0b6)
 
 ### URL
-https://interview0923.netlify.app/
+https://interview-practice.netlify.app/
 
 ## Project setup
 ```
