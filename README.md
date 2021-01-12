@@ -13,8 +13,6 @@
 #### ログインページ<br>
 [![Image from Gyazo](https://i.gyazo.com/9ec2fffc699ecd7fb12e6f174bb44af4.gif)](https://gyazo.com/9ec2fffc699ecd7fb12e6f174bb44af4)
 
-#### Userページ<br>
-[![Image from Gyazo](https://i.gyazo.com/1c8d93eba0e96508534853ecaa1b67ab.gif)](https://gyazo.com/1c8d93eba0e96508534853ecaa1b67ab)
 
 #### 面接ページ(1)<br>
 [![Image from Gyazo](https://i.gyazo.com/35081310c6a0e3ba351f49daaa3d00cd.gif)](https://gyazo.com/35081310c6a0e3ba351f49daaa3d00cd)
