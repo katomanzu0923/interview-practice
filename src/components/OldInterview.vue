@@ -61,7 +61,8 @@
 					<p v-else-if="number === 2">{{question02}}</p>
 					<p v-else-if="number === 3">{{question03}}</p>
 					<p v-else-if="number === 4">{{question04}}</p>
-					<p v-else-if="number === 5">ありがとうございました。それでは何か質問はありませんか？</p>
+					<p v-else-if="number === 5">{{question05}}</p> 
+					<p v-else-if="number === 6">ありがとうございました。それでは何か質問はありませんか？</p>
 				</div>
 				<div class="flex">
 				<img src="@/assets/face01.png" alt="">
@@ -98,10 +99,17 @@
 					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモ" class="NewText">memo</textarea>
 					<div>
 						<button @click="save04()" class="NewButton">保存</button>
-						<button @click="next()"  class="NewButton">{{down}}</button>
+						<button @click="next(),techrandom05()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-area" v-if="number=== 5">
+					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモ" class="NewText">memo</textarea>
+					<div>
+						<button @click="save05()" class="NewButton">保存</button>
+						<button @click="next()"  class="NewButton">{{down}}</button>
+					</div>
+				</div> 
+				<div class="button-area" v-if="number=== 6">
 					<button  class="NewButton">保存</button>
 					<button @click="next()"  class="NewButton">{{down}}</button>
 				</div>
@@ -124,12 +132,14 @@ export default {
 			memo02:'',
 			memo03:'',
 			memo04:'',
+			memo05:'',
 			number:0,
 			question00:'',
 			question01:'',
 			question02:'',
 			question03:'',
 			question04:'',
+			question05:'',
 			math:'',
 			newdata1:['あなたの自己PRを教えてください','あなたの成功体験を教えてください','学生時代に力を入れてきたこと'],
 			newdata2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
@@ -141,8 +151,9 @@ export default {
 			saledata4:['あなたの失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','その手法をどのように弊社で活かしていきたいと考えていますか',],
 			techdata1:['の自己PRを教えてください','の成功体験を教えてください','が業務で成し遂げた事を教えてください'],
 			techdata2:['その中で我が社に行かせそうなところを教えてください','なぜそのことに取り組もうと考えたのですか'],
-			techdata3:['なぜこの職種を希望されたのですか','今回のの就活軸を教えてください','エラーが発生した時にどのようにして解決しましたか？'],
+			techdata3:['なぜこの職種を希望されたのですか','今回の就活軸を教えてください'],
 			techdata4:['業務での失敗談を教えてください','弱みを教えてください','それを踏まえて弊社を志望する理由を教えてください','あなたのお気に入りの言語に関して教えてください',],
+			techdata5:['あなたが作成したもの中からお気に入りの言語に関して説明してください','あなたがこの言語を使用している理由を話してください','エラーに対してどのように対処していますか'],
 			randomnumber:'',
 			uppop:false,
 			popmemo00:'',
@@ -166,11 +177,11 @@ export default {
 	},
 	methods: {
 		next() {
-			if (this.number >= 4) {
-				if (this.number == 4) {
+			if (this.number >= 5) {
+				if (this.number == 5) {
 					this.down = "終了"
 					this.number = this.number +1 
-				}else if (this.number == 5) {
+				}else if (this.number == 6) {
 					this.number = 0
 					this.$emit('isOff')
 				}
@@ -247,7 +258,7 @@ export default {
 			}
 		},
 		techrandom03(){
-			this.randomnumber = Math.floor(Math.random() * 3);
+			this.randomnumber = Math.floor(Math.random() * 1);
 			this.question03 = this.techdata3[this.randomnumber]
 		},
 		techrandom04(){
@@ -259,6 +270,10 @@ export default {
 				this.randomnumber = 1 + Math.floor(Math.random() * 2);
 				this.question04 = this.techdata4[this.randomnumber]
 			}
+		},
+		techrandom05(){
+			this.randomnumber = Math.floor(Math.random() * 2);
+			this.question05 = this.techdata5[this.randomnumber]
 		},
 		save00() {
 			this.popmemo00 = this.memo00
@@ -303,6 +318,15 @@ export default {
 			this.$emit("save04", this.question04)
 			this.$emit("upsave")
 			this.$emit("uptext04")
+		},
+		save05() {
+			this.popmemo00 = this.memo05
+			this.uppop = true
+			this.poppart = 0
+			this.$emit("save5", this.memo05)
+			this.$emit("save05", this.question05)
+			this.$emit("upsave")
+			this.$emit("uptext05")
 		},
 		changepop(){
 			this.uppop = false
