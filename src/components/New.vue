@@ -112,11 +112,11 @@ button {
   font-size: 1rem;
 }
 .NewButton button {
-  color: red;
-  background:rgba(247, 205, 90, 0.548);
-  border:1px solid rgb(255, 0, 0);
+  color: rgb(0, 128, 0);
+  background:rgba(148, 247, 90, 0.548);
+  border:1px solid green;
   border-radius: 20px;
-  border-bottom: solid 4px rgba(255, 0, 0, 0.822);
+  border-bottom: solid 4px rgba(0, 128, 0, 0.822);
 }
 
 .OldButton {

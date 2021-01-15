@@ -57,7 +57,7 @@
 				</transition>
 				<div class="NewTitle">
 					<p v-if="number=== 0">{{displayName}}様の自己紹介をしてください</p>
-					<p v-else-if="number === 1">{{displayName}}{{question01}}</p>
+					<p v-else-if="number === 1">{{displayName}}様{{question01}}</p>
 					<p v-else-if="number === 2">{{question02}}</p>
 					<p v-else-if="number === 3">{{question03}}</p>
 					<p v-else-if="number === 4">{{question04}}</p>
