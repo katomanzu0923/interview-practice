@@ -1,7 +1,23 @@
 # interview-practice
 
-## 目的
+## URL
+https://interview-practice.netlify.app/
+
+## 概要
+個人に合わせて面接の練習ができる
+
+## 制作目的
 面接の場数不足といった課題を解決する為
+面接練習のルーティン化を防ぐ為
+
+###　工夫したポイント
+面接の質問内容をランダムにした事や質問の繋がりの不自然さを生まない内容にした事
+ログインや個人の就活スタイルに応じた表示を実装した事
+
+### 使用技術(開発環境)
+フロントエンド　vue.js(vueCLI)
+サーバーサイド　firebase
+
 
 ### 内容
 #### Top
@@ -23,8 +39,10 @@
 #### 面接ページ(3)<br>
 [![Image from Gyazo](https://i.gyazo.com/4f2f052de14aba2343eb7ebf5ec9d0b6.gif)](https://gyazo.com/4f2f052de14aba2343eb7ebf5ec9d0b6)
 
-### URL
-https://interview-practice.netlify.app/
+
+#### 今後の実装予定
+個人の質問のカスタマイズ機能実装
+
 
 ## Project setup
 ```
