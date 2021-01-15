@@ -15,8 +15,7 @@ https://interview-practice.netlify.app/
 ログインや個人の就活スタイルに応じた表示を実装した事
 
 ### 使用技術(開発環境)
-フロントエンド　vue.js(vueCLI)
-サーバーサイド　firebase
+フロントエンド　vue.js(vueCLI)<br>サーバーサイド　firebase
 
 
 ### 内容
