@@ -8,9 +8,7 @@
     <transition name="fade">
 			<router-view class="component"></router-view>
 		</transition>
-    <img src="@/assets/interviewback.png" v-if="changeDefault">
-    <img src="@/assets/sales.png" v-if="salesChange">
-    <img src="@/assets/techlast.png" v-if="techChange">
+    <img src="@/assets/interviewback.png">
   </div>
 </template>
 
@@ -52,6 +50,15 @@ export default {
 
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 h2 {
   width: 80%;
   text-align: center;
@@ -60,6 +67,10 @@ h2 {
   margin: 0 auto;
   -webkit-text-stroke: 1.5px black;
   text-stroke: 1px rgb(128, 34, 34);
+  @include media(m) {
+		width: 100%;
+    font-size: 2rem;
+	}
 }
 h3 {
   width: 30%;
@@ -71,6 +82,10 @@ h3 {
   border-bottom: 1px solid black;
   -webkit-text-stroke: 0.75px black;
   text-stroke: 1px black;
+  @include media(m) {
+		width: 50%;
+    font-size: 1rem;
+	}
 }
 button {
 	display: block;
@@ -82,16 +97,20 @@ button:active {
   /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  border-bottom: none;
 }
 img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index:  -5;
   filter: opacity(90%);
+  @include media(m) {
+		width: 100%;
+    height: 100%;
+	}
 }
 .fade-enter-active {
   transition: all 2s ease;

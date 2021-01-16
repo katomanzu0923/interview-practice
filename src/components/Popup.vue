@@ -45,6 +45,15 @@ export default {
 
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 button {
 	display: inline;
 }
@@ -101,5 +110,9 @@ p {
 	border: 1px double rgba(0, 0, 0, 0.63);
 	border-radius: 10px;
 	background: white;
+	@include media(m) {
+		width: 80%;
+		margin: 0 10%;
+	}
 }
 </style>

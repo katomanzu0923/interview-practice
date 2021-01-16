@@ -1,7 +1,7 @@
 <template>
 <div class="old-body">
 	<div v-if="Up">
-		<OldInterview :part="part" :select="select" @isOff="off" 
+		<OldInterview :part="part" :select="select" :FaceNumber="FaceNumber" @isOff="off" 
 		v-on:save00="memocontent00= $event" 
 		v-on:save01="memotitle01= $event" v-on:save1="memocontent01= $event" 
 		v-on:save02="memotitle02= $event" v-on:save2="memocontent02= $event"
@@ -30,26 +30,26 @@
 		</div>
 	</div>
 	<div class="memo-area" v-if="upmemo">
-		<button @click="back(),open()">{{AgoText}}</button>
+		<button @click="back(),open()" class="back-button">前回の振り返りを{{AgoText}}</button>
 		<div class="memo-text" v-if="textarea">
 			<div class="memo-texts" v-if="memotexts00">
-				<h1>{{displayName}}様の自己紹介をしてくださいといった質問に対するメモ</h1>
+				<h1>{{displayName}}様の自己紹介をしてください<br>といった質問に対するメモ</h1>
 				<h2>{{memocontent00}}</h2>
 			</div>
 			<div class="memo-texts" v-if="memotexts01">
-				<h1>{{displayName}}{{memotitle01}}といった質問に対するメモ</h1>
+				<h1>{{displayName}}{{memotitle01}}<br>といった質問に対するメモ</h1>
 				<h2>{{memocontent01}}</h2>
 			</div>
 			<div class="memo-texts" v-if="memotexts02">
-				<h1>{{memotitle02}}といった質問に対して</h1>
+				<h1>{{memotitle02}}<br>といった質問に対して</h1>
 				<h2>{{memocontent02}}</h2>
 			</div>
 			<div class="memo-texts" v-if="memotexts03">
-				<h1>{{memotitle03}}といった質問に対して</h1>
+				<h1>{{memotitle03}}<br>といった質問に対して</h1>
 				<h2>{{memocontent03}}</h2>
 			</div>
 			<div class="memo-texts" v-if="memotexts04">
-				<h1>{{memotitle04}}といった質問に対して</h1>
+				<h1>{{memotitle04}}<br>といった質問に対して</h1>
 				<h2>{{memocontent04}}</h2>
 			</div>
 		</div>
@@ -92,10 +92,10 @@ export default {
 			memocontent03:'特になし',
 			memocontent04:'特になし',
 			CustomText:'カスタムする',
-			AgoText:'前回の振り返りをみる',
+			AgoText:'',
 			upmemo: false,
 			uppop:false,
-			b:''
+			FaceNumber:''
     }
 	},
 	computed: {
@@ -127,37 +127,58 @@ export default {
 			this.$store.dispatch("techChange");
 		},
 		customs00() {
-			this.Up = true;
+			if(this.upmemo === true){
+				this.uppop = true
+				this.poppart = 1
+				this.part = 0
+			}else{
+				this.Up = true;
 			this.ContentUp = false;
 			let number = 1 + Math.floor( Math.random() * 4 )
 			this.select = number
 			this.part = 0
+			let facenumber = Math.floor( Math.random() * 3 )
+			this.FaceNumber = facenumber
+			}
 		},
 		custom01() {
-			this.Up = true;
+			if(this.upmemo === true){
+				this.uppop = true
+				this.poppart = 1
+				this.part = 1
+			}else{
+				this.Up = true;
 			this.ContentUp = false;
 			let number = 1 + Math.floor( Math.random() * 4 )
 			this.select = number
 			this.part = 1
+			let facenumber = Math.floor( Math.random() * 3 )
+			this.FaceNumber = facenumber
+			}
 		},
 		custom02() {
 			if(this.upmemo === true){
 				this.uppop = true
 				this.poppart = 1
+				this.part = 2
 			}else{
 				this.Up = true;
 				this.ContentUp = false;
 				let number = 1 + Math.floor( Math.random() * 4 )
 				this.select = number
 				this.part = 2
+				let facenumber = Math.floor( Math.random() * 3 )
+				this.FaceNumber = facenumber
 			}
 		},
 		popcustom02() {
+			if(this.part === 0) {
 			this.Up = true;
 			this.ContentUp = false;
 			let number = 1 + Math.floor( Math.random() * 4 )
 			this.select = number
-			this.part = 2
+			this.part = 0
+			this.upmemo = false
 			this.memotexts00 = false
 			this.memotexts01 = false
 			this.memotexts02 = false
@@ -172,6 +193,49 @@ export default {
 			this.memocontent02 = ''
 			this.memocontent03 = ''
 			this.memocontent04 = ''
+			}else if(this.part ===1) {
+				this.Up = true;
+			this.ContentUp = false;
+			let number = 1 + Math.floor( Math.random() * 4 )
+			this.select = number
+			this.part = 1
+			this.upmemo = false
+			this.memotexts00 = false
+			this.memotexts01 = false
+			this.memotexts02 = false
+			this.memotexts03 = false
+			this.memotexts04 = false
+			this.memotitle01 = ''
+			this.memotitle02 = ''
+			this.memotitle03 = ''
+			this.memotitle04 = ''
+			this.memocontent00 = ''
+			this.memocontent01 = ''
+			this.memocontent02 = ''
+			this.memocontent03 = ''
+			this.memocontent04 = ''
+			}else{
+				this.Up = true;
+			this.ContentUp = false;
+			let number = 1 + Math.floor( Math.random() * 4 )
+			this.select = number
+			this.part = 2
+			this.upmemo = false
+			this.memotexts00 = false
+			this.memotexts01 = false
+			this.memotexts02 = false
+			this.memotexts03 = false
+			this.memotexts04 = false
+			this.memotitle01 = ''
+			this.memotitle02 = ''
+			this.memotitle03 = ''
+			this.memotitle04 = ''
+			this.memocontent00 = ''
+			this.memocontent01 = ''
+			this.memocontent02 = ''
+			this.memocontent03 = ''
+			this.memocontent04 = ''
+			}
 		},
 		custom() {
 			if (this.area === false && this.CustomText === 'カスタムする') {
@@ -185,14 +249,14 @@ export default {
 			}
 		},
 		back() {
-			if (this.ago === false && this.AgoText === '前回の振り返りを非表示') {
+			if (this.ago === false && this.AgoText === '非表示') {
 				this.ago = true;
 				this.area = false;
 				this.CustomText = 'カスタムする'
-				this.AgoText = '前回の振り返りを表示';
+				this.AgoText = '表示';
 			}else{
 				this.ago = false;
-				this.AgoText = '前回の振り返りを非表示'
+				this.AgoText = '非表示'
 			}
 		},
 		register() {
@@ -252,6 +316,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 h1 {
 	font-size: 1rem;
 	font-weight: bold;
@@ -271,7 +344,6 @@ button {
   padding: 5px;
   text-decoration: none;
   outline: none;
-	width: 150px;
 	margin: 5px;
 }
 input {
@@ -301,6 +373,9 @@ input {
 .select-career {
 	display: flex;
 	justify-content: center;
+	@include media(m) {
+		flex-wrap:wrap;
+	}
 }
 .logout-button {
 	display: flex;
@@ -328,7 +403,7 @@ input {
 }
 .NewButton {
   display: inline;
-  margin: 20px;
+  margin: 1%;
   font-size: 1rem;
 }
 .button01 {
@@ -344,7 +419,7 @@ input {
 
 .OldButton {
   display: inline;
-  margin: 20px;
+  margin: 1%;
 }
 .OldButton  {
   color: rgb(0, 0, 255);
@@ -355,7 +430,7 @@ input {
 }
 .BackButton {
   display: inline;
-  margin: 20px;
+	margin: 1%;
 }
 .BackButton {
   color: rgb(0, 128, 0);
@@ -373,11 +448,17 @@ input {
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap:wrap;
+	@include media(m) {
+		flex-direction: wrap;
+	}
 }
 .memo-text::after{
   content:"";
   display: block;
   width:40%;
+	@include media(m) {
+		width: 80%;
+	}
 }
 .memo-texts {
 	margin: 1px;
@@ -387,6 +468,9 @@ input {
 	border: 1px solid rgba(0, 0, 0, 0.575);
 	border-radius: 10px;
 	background:rgb(230, 227, 227);
+	@include media(m) {
+		width: 90%;
+	}
 }
 .memo-area {
 	width: 100%;
@@ -397,5 +481,10 @@ input {
 }
 .middlespan {
 	font-weight: bold;
+}
+.back-button {
+	@include media (m) {
+		width: 80%;
+	}
 }
 </style>

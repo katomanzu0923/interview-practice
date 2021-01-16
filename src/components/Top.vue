@@ -98,6 +98,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 h2 {
   width: 30%;
   text-align: center;
@@ -114,10 +123,10 @@ button {
 	margin: 0 5px;
 }
 button:active {
-  /*ボタンを押したとき*/
+
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px);
+  border-bottom: none;
 }
 .AButton {
 	color: red;

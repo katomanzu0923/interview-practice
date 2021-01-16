@@ -58,6 +58,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$breakpoints: (
+	m: "only screen and (max-width: 980px)",
+	pc: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 h2 {
 	width: 100%;
   text-align: center;
@@ -68,13 +77,19 @@ h2 {
   text-stroke: 1px black;
 }
 input {
-	display: block;
+	display: inline-block;
 	color: rgb(0, 0, 0);
   background:rgba(247, 205, 90, 0.548);
   border:1px solid rgb(255, 0, 0);
   border-radius: 20px;
 	margin: 0 5px;
 	outline: none;
+	width: 10%;
+	padding: 5px;
+	@include media(m) {
+		width: 20%;
+		padding: 0;
+	}
 }
 select {
 	display: block;
@@ -86,7 +101,9 @@ select {
 	outline: none;
 }
 .registration-content {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 .select {
 	display: block;
@@ -107,17 +124,11 @@ button {
 	width: 100px;
 }
 button:active {
-  /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px);
+  border-bottom: none;
 }
 .flex {
-	display: flex;
-	justify-content: center;
-}
-.registration-content {
-	margin: 5px auto;
 	display: flex;
 	justify-content: center;
 }
