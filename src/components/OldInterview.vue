@@ -481,7 +481,7 @@ $breakpoints: (
 	width: 60%;
 	height: 450px;
 	@include media(m) {
-		height: 300px;
+		height: 200px;
 	}
 }
 p {
@@ -528,7 +528,7 @@ textarea {
   width: 100%;
   text-align: center;
   color:rgba(247, 205, 90, 0.548);
-  margin: 50px auto;
+  margin: 20px auto;
   -webkit-text-stroke: 1px red;
   text-stroke: 1px red;
 }
@@ -536,7 +536,7 @@ textarea {
   width: 100%;
   text-align: center;
   color:rgba(90, 247, 247, 0.548);
-  margin: 50px auto;
+  margin: 20px auto;
   -webkit-text-stroke: 1px blue;
   text-stroke: 1px blue;
 }

@@ -127,7 +127,7 @@ button:active {
   width: 100%;
   text-align: center;
   color:rgba(148, 247, 90, 0.548);
-  margin: 50px auto;
+  margin: 20px auto;
   -webkit-text-stroke: 1px green;
   text-stroke: 1px green;
 }
