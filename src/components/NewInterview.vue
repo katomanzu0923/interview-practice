@@ -44,7 +44,7 @@ export default {
 		},
 		face: {
 			type: Number,
-			default: １
+			default: 1
 		}
 	},methods: {
 		next() {
