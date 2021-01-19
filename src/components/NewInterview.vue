@@ -105,7 +105,7 @@ $breakpoints: (
 	width: 60%;
 	height: 450px;
 	@include media(m) {
-		height: 300px;
+		height: 200px;
 	}
 }
 p {
