@@ -18,42 +18,42 @@
 				<img src="@/assets/face04.png" class="face-image" alt="" v-if="FaceNumber===0"><img src="@/assets/face01.png" class="face-image" alt="" v-if="FaceNumber===1"><img src="@/assets/face02.png" class="face-image" alt="" v-if="FaceNumber===2"><img src="@/assets/face03.png" class="face-image" alt="" v-if="FaceNumber===3">
 				</div>
 				<div class="button-block" v-if="number=== 0">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton()">memo</textarea>
 					<div class="button-area">
 						<button @click="save00()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),newrandom01()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 1">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton01()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton01()">memo</textarea>
 					<div class="button-area">
 						<button @click="save01()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),newrandom02()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 2">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton02()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton02()">memo</textarea>
 					<div>
 						<button @click="save02()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),newrandom03()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 3">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton02()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton02()">memo</textarea>
 					<div>
 						<button @click="save03()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),newrandom04()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 4">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton03()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton03()">memo</textarea>
 					<div>
 						<button @click="save04()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),newrandom05()"  class="NewButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 5">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモ" class="NewText" v-on:input="checkbutton04()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモしてください" class="NewText" v-on:input="checkbutton04()">memo</textarea>
 					<div>
 						<button @click="save05()" :class="[ buttoncheck=== false? 'NewButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next()"  class="NewButton">{{down}}</button>
@@ -80,42 +80,42 @@
 				<img src="@/assets/face04.png" class="face-image" alt="" v-if="FaceNumber===0"><img src="@/assets/face01.png" class="face-image" alt="" v-if="FaceNumber===1"><img src="@/assets/face02.png" class="face-image" alt="" v-if="FaceNumber===2"><img src="@/assets/face03.png" class="face-image" alt="" v-if="FaceNumber===3">
 				</div>
 				<div class="button-block" v-if="number=== 0">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton()">memo</textarea>
 					<div>
 						<button @click="save00()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),salerandom01()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 1">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton01()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton01()">memo</textarea>
 					<div>
 						<button @click="save01()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),salerandom02()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 2">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton02()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton02()">memo</textarea>
 					<div>
 						<button @click="save02()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),salerandom03()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 3">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton03()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton03()">memo</textarea>
 					<div>
 						<button @click="save03()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),salerandom04()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 4">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton04()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton04()">memo</textarea>
 					<div>
 						<button @click="save04()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),salerandom05()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 5">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton05()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton05()">memo</textarea>
 					<div>
 						<button @click="save05()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next()"  class="OldButton">{{down}}</button>
@@ -143,42 +143,42 @@
 				<img src="@/assets/face04.png" class="face-image" alt="" v-if="FaceNumber===0"><img src="@/assets/face01.png" class="face-image" alt="" v-if="FaceNumber===1"><img src="@/assets/face02.png" class="face-image" alt="" v-if="FaceNumber===2"><img src="@/assets/face03.png" class="face-image" alt="" v-if="FaceNumber===3">
 				</div>
 				<div class="button-block" v-if="number=== 0">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo00" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton()">memo</textarea>
 					<div>
-						<button @click="save00()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
+						<button @click="save00()" :class="[ buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck" @mouseover="upAlert()">保存</button>
 						<button @click="next(),techrandom01()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 1">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton01()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo01" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton01()">memo</textarea>
 					<div>
 						<button @click="save01()" :class="[buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),techrandom02()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 2">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton02()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo02" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton02()">memo</textarea>
 					<div>
 						<button @click="save02()" :class="[buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),techrandom03()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 3">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton03()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo03" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton03()">memo</textarea>
 					<div>
 						<button @click="save03()" :class="[buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),techrandom04()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 4">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton04()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo04" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton04()">memo</textarea>
 					<div>
 						<button @click="save04()" :class="[buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next(),techrandom05()"  class="OldButton">{{down}}</button>
 					</div>
 				</div>
 				<div class="button-block" v-if="number=== 5">
-					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモ" class="OldText" v-on:input="checkbutton05()">memo</textarea>
+					<textarea name="" id="" cols="30" rows="10" v-model="memo05" placeholder="気になったことをメモしてください" class="OldText" v-on:input="checkbutton05()">memo</textarea>
 					<div>
 						<button @click="save05()" :class="[buttoncheck=== false? 'OldButton': 'DefaultButton']" v-bind:disabled="buttoncheck">保存</button>
 						<button @click="next()"  class="OldButton">{{down}}</button>
@@ -462,6 +462,9 @@ export default {
 		},
 		changepop(){
 			this.uppop = false
+		},
+		upAlert() {
+			alert('f')
 		}
 	}
 }
