@@ -55,7 +55,14 @@ $breakpoints: (
 	}
 }
 button {
-	display: inline;
+	outline: none;
+	margin: 5px;
+}
+button:active {
+
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
 }
 h1 {
 	margin: 5px;
@@ -85,6 +92,11 @@ p {
 	left: 15%;
 	width: 30%;
 	bottom: 30px;
+	color: blue;
+  background:rgba(90, 247, 247, 0.548);
+  border:1px solid blue;
+  border-radius: 20px;
+  border-bottom: solid 4px rgba(25, 0, 255, 0.822);
 }
 .right{
 	position: absolute;
@@ -92,6 +104,11 @@ p {
 	width: 35%;
 	left: 55%;
 	bottom: 30px;
+	color: red;
+  background:rgba(247, 205, 90, 0.548);
+  border:1px solid rgb(255, 0, 0);
+  border-radius: 20px;
+  border-bottom: solid 4px rgba(255, 0, 0, 0.822);
 }
 .popupbody {
 	position: absolute;
