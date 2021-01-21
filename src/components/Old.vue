@@ -1,5 +1,5 @@
 <template>
-<div class="old-body">
+<div class="ly_old">
 	<div v-if="Up">
 		<OldInterview :part="part" :select="select" :FaceNumber="FaceNumber" @isOff="off" 
 		v-on:save00="memocontent00= $event" 
@@ -18,39 +18,39 @@
 	<transition name="fade">
 		<Popup :poppart="poppart" v-on:downpop="changepop" v-on:ispopinterview="popcustom02" v-if="uppop"></Popup>
 	</transition>
-	<div class="select">
+	<div class="bl_old_ttl">
 		{{b}}
 		<p>ログインありがとうございます！</p>
 		下記から練習する種類を選んでください
-		<div class="select-career">
-			<button @click="customs00()"  class="NewButton"><span class="newspan">新卒</span>として<br>面接練習</button>
-			<button @click="custom01()" class="OldButton" @mouseover="salesback()" @mouseleave="defaultback()"><span class="middlespan">営業</span>として<br>面接練習</button>
-			<button @click="custom02()" class="OldButton" @mouseover="techback()" @mouseleave="defaultback()"><span class="middlespan">エンジニア</span>として<br>面接練習</button>
-			<button @click="logout()" class="BackButton">ログアウト</button>
+		<div class="bl_oldBtn_career">
+			<button @click="customs00()"  class="el_btn el_newBtn_clr"><span class="newspan">新卒</span>として<br>面接練習</button>
+			<button @click="custom01()" class="el_btn el_oldBtn_clr" @mouseover="salesback()" @mouseleave="defaultback()"><span class="el_btn_txt">営業</span>として<br>面接練習</button>
+			<button @click="custom02()" class="el_btn el_oldBtn_clr" @mouseover="techback()" @mouseleave="defaultback()"><span class="el_btn_txt">エンジニア</span>として<br>面接練習</button>
+			<button @click="logout()" class="el_btn el_bckBtn_clr">ログアウト</button>
 		</div>
 	</div>
-	<div class="memo-area" v-if="upmemo">
-		<button @click="back(),open()" class="back-button">前回の振り返りを{{AgoText}}</button>
-		<div class="memo-text" v-if="textarea">
-			<div class="memo-texts" v-if="memotexts00">
-				<h1>{{displayName}}様の自己紹介をしてください<br>といった質問に対するメモ</h1>
-				<h2>{{memocontent00}}</h2>
+	<div class="bl_oldMemo" v-if="upmemo">
+		<button @click="back(),open()" class="el_memoBtn">前回の振り返りを{{AgoText}}</button>
+		<div class="bl_memoTxts" v-if="textarea">
+			<div class="bl_memoTxt" v-if="memotexts00">
+				<h1 class="el_memoTxt_ttl" >{{displayName}}様の自己紹介をしてください<br>といった質問に対するメモ</h1>
+				<h2 class="el_memoTxt_cont">{{memocontent00}}</h2>
 			</div>
-			<div class="memo-texts" v-if="memotexts01">
-				<h1>{{displayName}}{{memotitle01}}<br>といった質問に対するメモ</h1>
-				<h2>{{memocontent01}}</h2>
+			<div class="bl_memoTxt" v-if="memotexts01">
+				<h1 class="el_memoTxt_ttl">{{displayName}}{{memotitle01}}<br>といった質問に対するメモ</h1>
+				<h2 class="el_memoTxt_cont">{{memocontent01}}</h2>
 			</div>
-			<div class="memo-texts" v-if="memotexts02">
-				<h1>{{memotitle02}}<br>といった質問に対して</h1>
-				<h2>{{memocontent02}}</h2>
+			<div class="bl_memoTxt" v-if="memotexts02">
+				<h1 class="el_memoTxt_ttl">{{memotitle02}}<br>といった質問に対して</h1>
+				<h2 class="el_memoTxt_cont">{{memocontent02}}</h2>
 			</div>
-			<div class="memo-texts" v-if="memotexts03">
-				<h1>{{memotitle03}}<br>といった質問に対して</h1>
-				<h2>{{memocontent03}}</h2>
+			<div class="bl_memoTxt" v-if="memotexts03">
+				<h1 class="el_memoTxt_ttl">{{memotitle03}}<br>といった質問に対して</h1>
+				<h2 class="el_memoTxt_cont">{{memocontent03}}</h2>
 			</div>
-			<div class="memo-texts" v-if="memotexts04">
-				<h1>{{memotitle04}}<br>といった質問に対して</h1>
-				<h2>{{memocontent04}}</h2>
+			<div class="bl_memoTxt" v-if="memotexts04">
+				<h1 class="el_memoTxt_ttl">{{memotitle04}}<br>といった質問に対して</h1>
+				<h2 class="el_memoTxt_cont">{{memocontent04}}</h2>
 			</div>
 		</div>
 	</div>
@@ -92,7 +92,7 @@ export default {
 			memocontent03:'特になし',
 			memocontent04:'特になし',
 			CustomText:'カスタムする',
-			AgoText:'',
+			AgoText:'表示',
 			upmemo: false,
 			uppop:false,
 			FaceNumber:''
@@ -325,14 +325,14 @@ $breakpoints: (
 		@content;
 	}
 }
-h1 {
+.el_memoTxt_ttl {
 	font-size: 1rem;
 	font-weight: bold;
 	text-align: center;
 	margin: 0 10px;
 	padding: 0 2px 0;
 }
-h2 {
+.el_memoTxt_cont {
 	font-size: 1rem;
 	font-weight: normal;
 	margin: 1px 5px;
@@ -367,10 +367,10 @@ input {
 .fade-leave-to {
 	opacity: 0;
 }
-.select {
+.bl_old_ttl {
 	text-align: center;
 }
-.select-career {
+.bl_oldBtn_career {
 	display: flex;
 	justify-content: center;
 	@include media(m) {
@@ -381,12 +381,12 @@ input {
 	display: flex;
 	justify-content: center;
 }
-.NewButton button:active {
+.el_newBtn button:active {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   border-bottom: none;
 }
-.OldButton button:active {
+.el_oldBtn button:active {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   border-bottom: none;
@@ -401,15 +401,13 @@ input {
   display: flex;
   justify-content: center;
 }
-.NewButton {
+.el_Btn {
   display: inline;
   margin: 1%;
   font-size: 1rem;
 }
-.button01 {
-	width: 50%;
-}
-.NewButton {
+
+.el_newBtn_clr {
   color: rgb(255, 0, 0);
   background:rgba(247, 205, 90, 0.548);
   border:1px solid rgb(255, 0, 0);
@@ -417,22 +415,15 @@ input {
   border-bottom: solid 4px rgba(255, 0, 0, 0.822);
 }
 
-.OldButton {
-  display: inline;
-  margin: 1%;
-}
-.OldButton  {
+.el_oldBtn_clr  {
   color: rgb(0, 0, 255);
   background:rgba(90, 247, 247, 0.548);
   border:1px solid blue;
   border-radius: 20px;
   border-bottom: solid 4px rgba(25, 0, 255, 0.822);
 }
-.BackButton {
-  display: inline;
-	margin: 1%;
-}
-.BackButton {
+
+.el_bckBtn_clr {
   color: rgb(0, 128, 0);
   background:rgba(148, 247, 90, 0.548);
   border:1px solid green;
@@ -443,7 +434,7 @@ input {
 	width: 100%;
 	text-align: center;
 }
-.memo-text {
+.bl_memoTxts {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -452,7 +443,7 @@ input {
 		flex-direction: wrap;
 	}
 }
-.memo-text::after{
+.bl_memoTxts::after{
   content:"";
   display: block;
   width:40%;
@@ -460,7 +451,7 @@ input {
 		width: 80%;
 	}
 }
-.memo-texts {
+.bl_memoTxt {
 	margin: 1px;
 	padding: 2px 0;
 	width: 40%;
@@ -472,17 +463,17 @@ input {
 		width: 90%;
 	}
 }
-.memo-area {
+.bl_oldMemo {
 	width: 100%;
 	text-align: center;
 }
 .newspan {
 	font-weight: bold;
 }
-.middlespan {
+.el_btn_txt {
 	font-weight: bold;
 }
-.back-button {
+.el_memoBtn {
 	@include media (m) {
 		width: 80%;
 	}

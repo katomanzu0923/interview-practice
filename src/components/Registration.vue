@@ -1,13 +1,13 @@
 <template>
-<div>
-		<div class="registration-content" v-if="RegistrationUp">
-			<input type="text" v-model="name" placeholder="name">
-			<input type="email" v-model="email" placeholder="email">
-			<input type="password" v-model="password" placeholder="password">
+<div class="ly_reg">
+		<div class="bl_reg_int" v-if="RegistrationUp">
+			<input  class="el_reg_txtArea" type="text" v-model="name" placeholder="name">
+			<input class="el_reg_txtArea" type="email" v-model="email" placeholder="email">
+			<input class="el_reg_txtArea" type="password" v-model="password" placeholder="password">
 		</div>
-		<div class="flex">
-			<router-link to="/user" tag="button" class="registration-button" @click.native="registration(), plus()">登録する</router-link>
-			<router-link to="/" tag="button" class="registration-button" @click="back()">戻る</router-link>
+		<div class="bl_regBtn">
+			<router-link to="/user" tag="button" class="el_regBtn_clr" @click.native="registration(), plus()">登録する</router-link>
+			<router-link to="/" tag="button" class="el_regBtn_clr" @click="back()">戻る</router-link>
 		</div>
 </div>
 </template>
@@ -67,16 +67,7 @@ $breakpoints: (
 		@content;
 	}
 }
-h2 {
-	width: 100%;
-  text-align: center;
-  color:rgba(247, 205, 90, 0.548);
-  width: 15%;
-  margin: 50px auto;
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
-}
-input {
+.el_reg_txtArea {
 	display: inline-block;
 	color: rgb(0, 0, 0);
   background:rgba(247, 205, 90, 0.548);
@@ -91,16 +82,8 @@ input {
 		padding: 0;
 	}
 }
-select {
-	display: block;
-	color: rgb(0, 0, 0);
-  background:rgba(247, 205, 90, 0.548);
-  border:1px solid rgb(255, 0, 0);
-  border-radius: 20px;
-	margin: 0 5px;
-	outline: none;
-}
-.registration-content {
+
+.bl_reg_int {
 	display: flex;
 	justify-content: center;
 	width: 100%;
@@ -128,11 +111,11 @@ button:active {
   transform: translateY(4px);
   border-bottom: none;
 }
-.flex {
+.bl_regBtn {
 	display: flex;
 	justify-content: center;
 }
-.registration-button {
+.el_regBtn_clr {
 	color: rgb(255, 0, 0);
   background:rgba(247, 205, 90, 0.548);
   border:1px solid rgb(255, 0, 0);

@@ -1,19 +1,13 @@
 <template>
-<div>
+<div class="ly_new">
 	<div v-if="Up">
 		<NewInterview :select="select" :face="face" @isOff="off"></NewInterview>
 	</div>
-	<div class="PartButton">
-      <div class="NewButton">
-        <button @click="PositionNew()">面接練習する</button>
-      </div>
-      <div class="TechButton">
-        <router-link to="/" tag="button" >戻る</router-link>
-      </div>
-      <div class="BackButton">
-      </div>
-    </div>
-</div>
+	<div class="bl_new">
+    <button class="el_btn el_btn_new" @click="PositionNew()">面接練習する</button>
+    <router-link class="el_btn el_btn_bck" to="/" tag="button" >戻る</router-link>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -43,7 +37,6 @@ export default {
       this.Up = true
 			this.select = 1
 			this.face = 1 + Math.floor( Math.random() * 4 )
-      console.log(this.face)
 		},
 		PositionOld() {
 			this.select = 2
@@ -65,53 +58,39 @@ export default {
 
 <style lang="scss" scoped>
 button {
-  padding: 5px;
-  text-decoration: none;
   outline: none;
 }
-.back-button {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  background:rgba(224, 222, 214, 0.548);
-  border:1px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  border-bottom: solid 4px rgba(0, 0, 0, 0.822);
-  padding: 0 50px;
-}
-.NewButton button:active {
-  /*ボタンを押したとき*/
+button:active {
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px);
+  border-bottom: none;
 }
-.OldButton button:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
-.TechButton button:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
-.BackButton button:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
-}
-.PartButton {
+
+.bl_new {
   display: flex;
   justify-content: center;
 }
-.NewButton {
+
+button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.el_btn {
   display: inline;
   margin: 0 20px;
   font-size: 1rem;
 }
-.NewButton button {
+.el_btn_new {
+  color: rgb(0, 128, 0);
+  background:rgba(148, 247, 90, 0.548);
+  border:1px solid green;
+  border-radius: 20px;
+  border-bottom: solid 4px rgba(0, 128, 0, 0.822);
+}
+.el_btn_bck {
   color: rgb(0, 128, 0);
   background:rgba(148, 247, 90, 0.548);
   border:1px solid green;
@@ -119,37 +98,5 @@ button {
   border-bottom: solid 4px rgba(0, 128, 0, 0.822);
 }
 
-.OldButton {
-  display: inline;
-  margin: 0 20px;
-}
-.OldButton button {
-  color: blue;
-  background:rgba(90, 247, 247, 0.548);
-  border:1px solid blue;
-  border-radius: 20px;
-  border-bottom: solid 4px rgba(25, 0, 255, 0.822);
-}
-.TechButton {
-  display: inline;
-  margin: 0 20px;
-}
-.TechButton button {
-  color: rgb(0, 128, 0);
-  background:rgba(148, 247, 90, 0.548);
-  border:1px solid green;
-  border-radius: 20px;
-  border-bottom: solid 4px rgba(0, 128, 0, 0.822);
-}
-.BackButton {
-  display: inline;
-  margin: 20px;
-}
-.BackButton button {
-  color: rgb(0, 0, 0);
-  background:rgba(255, 255, 255, 0.548);
-  border:1px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  border-bottom: solid 4px rgba(0, 0, 0, 0.822);
-}
+
 </style>

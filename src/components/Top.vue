@@ -1,9 +1,9 @@
 <template>
-  <div class="appBody">
-		<div class="top-buttons">
-			<router-link to="/registration" tag="button" @click="ToRegistration(), name()" v-if="CheckNew" :class="[uu === true ? 'AButton' : 'classB']">{{Registration}}</router-link>
-			<router-link to="/login" tag="button" @click="ToLogin()" v-if="CheckOld" :class="[uu === true ? 'BButton' : 'classB']">{{Login}}</router-link>
-			<router-link to="/new" tag="button" @click="check03()" v-if="!isAuthenticated" :class="[uu === true ? 'NoButton' : 'classB']">{{NoLogin}}</router-link>
+  <div class="ly_top">
+		<div class="bl_top">
+			<router-link to="/registration" tag="button" @click="ToRegistration(), name()" v-if="CheckNew" class="el_btn el_regBtn_clr">{{Registration}}</router-link>
+			<router-link to="/login" tag="button" @click="ToLogin()" v-if="CheckOld" class="el_btn el_logBtn_clr">{{Login}}</router-link>
+			<router-link to="/new" tag="button" @click="check03()" v-if="!isAuthenticated" class="el_btn el_nologBtn_clr">{{NoLogin}}</router-link>
 			<Registration v-if="check === '01'" @isOff="off"></Registration>
 			<Login v-if="check === '02'" @isOff="off"></Login>
 			<New v-if="check === '03'"></New>
@@ -33,7 +33,7 @@ export default {
 			Registration: '登録する',
 			Login:'ログイン',
 			NoLogin:'ログインしないで練習',
-			uu:true
+			isChange:true
     }
 	},
 	computed: {
@@ -107,59 +107,40 @@ $breakpoints: (
 		@content;
 	}
 }
-h2 {
-  width: 30%;
-  text-align: center;
-  color:white;
-  border-bottom: 1px solid black;
-  margin: 50px auto;
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
-}
-button {
+.el_btn {
 	display: block;
 	text-decoration: none;
   outline: none;
 	margin: 0 5px;
 }
-button:active {
+.el_btn:active {
 
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   border-bottom: none;
 }
-.AButton {
+.el_regBtn_clr {
 	color: red;
   background:rgba(247, 205, 90, 0.548);
   border:1px solid rgb(255, 0, 0);
   border-radius: 20px;
   border-bottom: solid 4px rgba(255, 0, 0, 0.822);
 }
-.BButton {
+.el_logBtn_clr {
 	color: blue;
   background:rgba(90, 247, 247, 0.548);
   border:1px solid blue;
   border-radius: 20px;
   border-bottom: solid 4px rgba(25, 0, 255, 0.822);
 }
-.NoButton  {
+.el_nologBtn_clr  {
   color: rgb(0, 128, 0);
   background:rgba(148, 247, 90, 0.548);
   border:1px solid green;
   border-radius: 20px;
   border-bottom: solid 4px rgba(0, 128, 0, 0.822);
 }
-.defaultTitle {
-  width: 100%;
-  text-align: center;
-  color:white;
-  border-bottom: 1px solid black;
-  width: 15%;
-  margin: 50px auto;
-  -webkit-text-stroke: 1px black;
-  text-stroke: 1px black;
-}
-.top-buttons {
+.bl_top {
 	display: flex;
 	justify-content: center;
 }

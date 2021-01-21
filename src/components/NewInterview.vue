@@ -1,7 +1,7 @@
 <template>
-	<div class="contentsBody" >
-			<div class="contents" v-if="select=== 1">
-				<div class="NewTitle">
+	<div class="ly_newint" >
+			<div class="bl_newint" v-if="select=== 1">
+				<div class="bl_newint_ttl">
 					<p v-if="number=== 0">あなたの自己紹介を教えてください</p>
 					<p v-else-if="number === 1">{{question01}}</p>
 					<p v-else-if="number === 2">{{question02}}</p>
@@ -9,15 +9,15 @@
 					<p v-else-if="number === 4">{{question04}}</p>
 					<p v-else-if="number === 5">ありがとうございました。それでは何か質問はありませんか？</p>
 				</div>
-				<div class="flex">
-				<img src="@/assets/face01.png" class="face-image" alt="" v-if="face===1"><img src="@/assets/face02.png" alt="" v-if="face===2"><img src="@/assets/face03.png" alt="" v-if="face===3"><img src="@/assets/face04.png" alt="" v-if="face===4">
+				<div class="bl_newimg">
+				<img src="@/assets/face01.png" class="bl_newimg_img" alt="" v-if="face===1"><img class="bl_newimg_img" src="@/assets/face02.png" alt="" v-if="face===2"><img class="bl_newimg_img" src="@/assets/face03.png" alt="" v-if="face===3"><img class="bl_newimg_img" src="@/assets/face04.png" alt="" v-if="face===4">
 				</div>
-				<button v-if="number=== 0" @click="next(),newrandom01()"  class="NewButton">{{down}}</button>
-				<button v-else-if="number === 1" @click="next(),newrandom02()"  class="NewButton">{{down}}</button>
-				<button v-else-if="number === 2" @click="next(),newrandom03()"  class="NewButton">{{down}}</button>
-				<button v-else-if="number === 3" @click="next(),newrandom04()"  class="NewButton">{{down}}</button>
-				<button v-else-if="number === 4" @click="next()"  class="NewButton">{{down}}</button>
-				<button v-else-if="number === 5" @click="next()"  class="NewButton">{{down}}</button>
+				<button v-if="number=== 0" @click="next(),newrandom01()"  class="el_btn el_btn_clr">{{down}}</button>
+				<button v-else-if="number === 1" @click="next(),newrandom02()"  class="el_btn el_btn_clr">{{down}}</button>
+				<button v-else-if="number === 2" @click="next(),newrandom03()"  class="el_btn el_btn_clr">{{down}}</button>
+				<button v-else-if="number === 3" @click="next(),newrandom04()"  class="el_btn el_btn_clr">{{down}}</button>
+				<button v-else-if="number === 4" @click="next()"  class="el_btn el_btn_clr">{{down}}</button>
+				<button v-else-if="number === 5" @click="next()"  class="el_btn el_btn_clr">{{down}}</button>
 			</div>
 			<div>{{finish}}</div>
 	</div>
@@ -101,13 +101,6 @@ $breakpoints: (
 		@content;
 	}
 }
-.face-image {
-	width: 60%;
-	height: 450px;
-	@include media(m) {
-		height: 200px;
-	}
-}
 p {
 	font-size: 2rem;
 	text-align: center;
@@ -118,12 +111,33 @@ button {
 	outline: none;
 }
 button:active {
-  /*ボタンを押したとき*/
+
   -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  transform: translateY(4px);
+  border-bottom: none;
 }
-.NewTitle p{
+.bl_newint {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	bottom: 10%;
+	text-align: center;
+	background: white;
+}
+.bl_newimg {
+	display: bl_newimg;
+	justify-content: space-around;
+}
+.bl_newimg_img {
+	width: 60%;
+	height: 450px;
+	@include media(m) {
+		height: 200px;
+	}
+}
+.bl_newint_ttl p{
   width: 100%;
   text-align: center;
   color:rgba(148, 247, 90, 0.548);
@@ -131,23 +145,8 @@ button:active {
   -webkit-text-stroke: 1px green;
   text-stroke: 1px green;
 }
-.OldTitle p{
-  width: 100%;
-  text-align: center;
-  color:rgba(90, 247, 247, 0.548);
-  margin: 50px auto;
-  -webkit-text-stroke: 1px blue;
-  text-stroke: 1px blue;
-}
-.TechTitle p{
-  width: 100%;
-  text-align: center;
-  color:rgba(148, 247, 90, 0.548);
-  margin: 50px auto;
-  -webkit-text-stroke: 1px green;
-  text-stroke: 1px green;
-}
-.NewButton  {
+
+.el_btn  {
   color: rgb(0, 128, 0);
   background:rgba(148, 247, 90, 0.548);
   border:1px solid green;
@@ -163,79 +162,13 @@ button:active {
 		font-size: 1rem;
 	}
 }
-.OldButton {
-  color: blue;
-  background:rgba(90, 247, 247, 0.548);
-  border:1px solid blue;
-  border-radius: 20px;
-  border-bottom: solid 4px rgba(25, 0, 255, 0.822);
-	width: 10%;
-	font-size: 1.5rem;
-	padding: 5px;
-	margin: 10px auto;
-}
-.TechButton {
-  color: rgb(0, 128, 0);
+.el_btn_clr {
+	color: rgb(0, 128, 0);
   background:rgba(148, 247, 90, 0.548);
   border:1px solid green;
   border-radius: 20px;
   border-bottom: solid 4px rgba(0, 128, 0, 0.822);
-	width: 10%;
-	font-size: 1.5rem;
-	padding: 5px;
-	margin: 10px auto;
 }
-.NewText {
-  color: red;
-  background:rgba(247, 205, 90, 0.548);
-  border:1px solid rgb(255, 0, 0);
-  border-radius: 20px;
-	width: 30%;
-	font-size: 1rem;
-	padding: 5px;
-	margin: 0 5px;
-}
-.OldText {
-  color: blue;
-  background:rgba(90, 247, 247, 0.548);
-  border:1px solid blue;
-  border-radius: 20px;
-	width: 30%;
-	font-size: 1rem;
-	padding: 5px;
-	margin: 0 5px;
-}
-.TechText {
-  color: rgb(0, 128, 0);
-  background:rgba(148, 247, 90, 0.548);
-  border:1px solid green;
-  border-radius: 20px;
-	width: 30%;
-	font-size: 1rem;
-	padding: 5px;
-	margin: 0 5px;
-}
-#button {
-	display: block;
-	text-align: center;
-	width: 20%;
-	margin-left: 40%;
-	margin-top: 5%;
-}
-.contents {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	bottom: 10%;
-	text-align: center;
-	background: white;
-}
-.flex {
-	
-	display: flex;
-	justify-content: space-around;
-}
+
 </style>
 
