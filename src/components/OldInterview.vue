@@ -130,7 +130,7 @@
 				<transition name="fade">
 					<Popup :popmemo00="popmemo00" :poppart="poppart" v-on:downpop="changepop" v-if="uppop"></Popup>
 				</transition>
-				<div class="OldTitle">
+				<div class="bl_oldTtl">
 					<p class="el_ttl el_ttl_oldClr" v-if="number=== 0">{{displayName}}様の自己紹介をしてください</p>
 					<p class="el_ttl el_ttl_oldClr" v-else-if="number === 1">{{displayName}}様{{question01}}</p>
 					<p class="el_ttl el_ttl_oldClr" v-else-if="number === 2">{{question02}}</p>
